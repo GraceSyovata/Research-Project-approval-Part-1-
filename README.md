@@ -1,149 +1,68 @@
-# Research-Project-approval-Part-1-
-Maze project
-Background Context
-The goal of this project is to create a game in 3D using raycasting !
+Maze Game MVP Specification
 
-You don’t have to do the tasks in order, except for the first one (obviously), or if a task depends on a previous one
+(A 3D Game created using SDL2)
+![image](https://github.com/GraceSyovata/Research-Project-approval-Part-1-/assets/123548408/7d208aa9-0a98-4828-8b5d-76dc2f2fcb02)
 
-You have a link to a very good and very long tutorial about raycasting in the Tips and links section below, so read it very carefully, and practice !
-
-Please have a lot of fun doing this project !
+Minimum Viable Product (MVP) for the Maze Game with SDL2:
 
 
+Explanation:
+Walls: Create a 2D array to represent the maze and draw walls using SDL2 graphics library. The walls should be represented by rectangles or lines.
+Define a 2D array to store the maze data.
 
-Requirements
-General
-All your files will be compiled on Ubuntu 14.04 LTS, using gcc (Ubuntu 4.8.4-2ubuntu1~14.04) 4.8.4
-We will use the gcc flags -Wall -Werror -Wextra and -pedantic
-All your functions must be commented
-Your functions should be maximum 40 lines long (one statement per line)
-Your functions should be maximum 80 columns long
-No more than 5 functions per file
-Betty
-Your entire repository will be checked using Betty
-Don’t push any object files .o or temporary files *~, or any unused source file if you don’t want to lose points !
-It is advised to always keep a clear organisation in your repository. For example, store all your sources in a src directory, and all your headers in a inc, headers or dependencies folder
-More Info
-Tips and links
-SDL2 - Get started.pdf
-SDL2 tutorials
-Be careful with tutorials/help online: We are using SDL2, and not SDL-1.2 !
-RAYCASTING !!!
-Alternative Raycasting Tutorial
-Important
-Don’t forget to install SDL2 SDL2 tutorials
-There are no forbidden functions for this project. You are allowed to use any system call and/or standard library function.
-You are allowed to use all the functions provided by SDL2
-Tasks
-0. Walls !
-In this first part, you’ll have to:
+Use SDL2 graphics library to draw walls by rendering rectangles or lines.
 
-Create a window with SDL2
-Use raycasting to draw walls on your window !
-You don’t need to be able to rotate the camera during the execution in this part, but you must provide a way to change the angle of the camera in your code to see if it works after recompiling it
-The color of the walls must be different from the color of the ground/ceil
-The map doesn’t need to be parsed from a file, but you must provide a way to modify it in your code to see if it works after recompiling it. (e.g. using an array of arrays of integers or characters).
-Example:
+Orientation: Use the arrow keys to control the movement and rotation of the player in the maze. You can use SDL_Event to handle user input.
+Implement a function to handle user input using SDL_Event.
 
+Update the player's position and orientation based on the input received from the user.
 
+Move: Implement basic movement logic for the player. Allow the player to move forward, backward, left, and right in the maze.
+Implement a function to update the player's position based on the current orientation and input received from the user.
 
-In the following image, the camera is the red square, and the visible area is painted in green:
+Ouch: Add collision detection between the player and the walls. The player should not be able to move through the walls. If the player collides with a wall, stop the player's movement.
 
+Implement a function to check for collision between the player and the walls.
 
+If the player collides with a wall, stop the player's movement.
 
-1. Orientation
-In this part, you must draw a different color depending on the orientation of the walls.
+Parser: Create a simple parser to read the maze data from a text file and store it in a 2D array.
 
-You must at least draw walls facing NORTH and SOUTH in a different color from walls facing EAST and WEST.
-Example:
+Implement a function to read the maze data from a text file.
+
+Store the maze data in the 2D array.
+
+Draw the Map: Draw the maze using the maze data stored in the 2D array. You can use different colors for the walls and ground/ceiling to make them visually distinct.
+
+Use the maze data stored in the 2D array to draw the maze.
+
+Use different colors to distinguish between the walls and ground/ceiling.
+
+Textures: Add basic textures to the walls using SDL2's texture rendering functions.
+
+Implement a function to load wall textures.
+
+Use SDL2's texture rendering functions to render textures on the walls.
+
+These are the minimum features required to implement a basic maze game with SDL2.
+
+Data Modelling
 
 
+USER STORY
 
-2. Rotation
-You must provide a way to rotate the camera during the execution.
+End users want to be able to play a maze game using SDL2, so that they can have fun solving the maze and challenging myself to improve my speed and accuracy.
 
-For example, you can rotate the camera when the left,right arrows are pressed on the keyboard.
-Or you can rotate the camera when the mouse moves, just like a FPS game !
-Example:
+When they start the game, they want to see a main menu that allows them to start a new game, load a saved game, or quit the game. If they choose to start a new game, they want to be able to select the difficulty level of the maze, including the size of the maze and the number of obstacles.
 
+Once the game starts, they want to see a maze on the screen, with a character that they control using the arrow keys on their keyboard. They want the character to move smoothly and quickly, without any lag or delay. They also want to see a timer that counts down the time they have to complete the maze, as well as a score that reflects their progress through the maze.
 
+As they navigate through the maze, they want to be able to collect coins or other rewards that will increase their score. They also want to encounter obstacles that will slow them down or make it harder to reach the end of the maze.
 
-3. Move
-You must provide a way to move the camera during the execution.
+When they reach the end of the maze, they want to see a message that congratulates them on completing the maze, and that displays their final score and the time it took them to complete the maze. They also want the option to save their game, so that they can come back and play again later.
 
-For example, you can move the camera when the w,a,s,d keys are pressed on the keyboard.
-Example:
+Throughout the game, they want to hear sound effects that correspond to their actions, such as collecting coins or hitting an obstacle. They also want to hear music that adds to the excitement and challenge of the game.
 
+Finally, they want the game to be visually appealing, with high-quality graphics and animations that make it fun to play and keep them engaged throughout the game.
 
-
-
-
-4. Ouch !
-In this part, you must handle the collisions of the player (yes, let’s call the camera player now, it’s getting serious) with the walls.
-
-The player must not be able to enter walls
-You can make the player slide on the walls instead of just stop it.
-5. Parser
-In this part you must implement a parser to get the map from a file.
-
-You are free to define the standards of your map (The character for a wall, the character for nothing, the extension of the file if you want, …)
-Your program will need a parameter to run which will be the path to the map file
-6. Draw the map
-In this part, you must draw the map on the window.
-
-You’re free to draw the map where you want, with the color you want, …
-You must provide a way to enable/disable it during the execution
-Include the player’s line of sight in the map
-7. Coding style + Documentation
-Check if you code fits the Holberton School coding style.
-Check if your code is well documented and respect the Holberton School documentation format
-You can check all of this by yourself, just follow the instructions on this repository
-
-Be careful
-
-The check will be done on each file present on your turn in repository. Even the files that was not required. So don’t forget to always keep your turn in directory clean.
-
-8. Textures
-In this part you have to add textures on your walls !
-
-Example
-
-
-
-9. Multi task !
-Add a way to move on several directions and rotate in the same time. Basically in this part you’ll have to handle multiple events on the same frame.
-
-For example, if the keys to move are w,a,s,d:
-
-If the keys w and s are pressed in the same time, the player shouldn’t move.
-If the keys w and d are pressed in the same time, the player should move forward and right in the same time,
-…
-10. Ground textures
-In this part you have to add textures on the ground and/or on the ceiling !
-
-Example
-
-
-
-
-
-11. Weapons
-Add weapons textures !
-
-Example
-
-
-
-12. Enemies
-Add some enemies !
-
-Example from the game Wolfenstein 3D:
-
-
-
-13. Make it rain
-Add rain and a possibility to stop / start the rain with a key.
-
-14. Extra option
-Shadows, special lightning, etc… get creative!
-
+Author Grace Musyoka
